@@ -7,11 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "InputHandler.h"
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        InputHandler *inputHandler =[InputHandler new];
+        NSString *userInput=[inputHandler convertToString:@"please enter the word to convert"];
+        //NSArray *array = []
+        NSArray *array = [userInput componentsSeparatedByString:@" "];
+        for(NSString* items in array){
+            NSString *output =[inputHandler convertToLatin:items];
+            NSLog(@"%@",output);
+        }
+        //NSLog(@"Hello, World!");
     }
     return 0;
 }
